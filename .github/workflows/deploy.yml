@@ -22,11 +22,3 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           source: "."
           target: ${{ secrets.TARGET }}
-
-      - name: Install files on server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: sh ${{ secrets.TARGET }}/init.sh
