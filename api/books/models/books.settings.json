@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "Books",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "editor": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "read",
+        "not_read",
+        "lent",
+        "given",
+        "wished"
+      ],
+      "required": true
+    },
+    "categories": {
+      "via": "books",
+      "collection": "categories"
+    },
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "borrowable": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
